@@ -28,17 +28,20 @@ export class BuyProductPage {
   quantity: number = 1;
   price: number;
   totalAmt: number;
+  uid:number;
   canNotIncreaseQty:boolean=false;
-  constructor(public navCtrl: NavController, 
+  constructor(public navCtrl: NavController,
     public product_db:ProductDbProvider
     ,public navParams: NavParams) {
     this.seller_details=this.navParams.get('seller');
     this.productDetail=this.navParams.get('prod');
     }
 
-  ionViewWillEnter() {
+  ionViewCanEnter() {
+    this.quantity=1;
     console.log("ionViewDidLoad BuyProductPage");
-    this.product_db.getUser(1).subscribe((data:user[])=>{
+    this.uid=parseInt(localStorage.getItem("id"));
+    this.product_db.getUser(this.uid).subscribe((data:user[])=>{
       this.user_details=data[0];
       console.log(data);
       console.log(this.user_details);
@@ -46,10 +49,15 @@ export class BuyProductPage {
 
     },()=>{
     });
-    this.price=this.productDetail.product_price;
+    this.seller_details=this.navParams.get('seller');
+    this.productDetail=this.navParams.get('prod');
+
+    this.price=this.seller_details.price;
     this.totalAmt = this.price * this.quantity;
   }
-
+  ionViewWillUnload(){
+this.quantity=1;
+  }
   increase() {
     if(this.quantity<this.seller_details.stock)
     {
@@ -74,7 +82,8 @@ export class BuyProductPage {
   }
   placeOrder(){
     this.date=new Date().toISOString();
-    this.product_db.placeOrder(new order(0,1,this.productDetail.product_id,
+    this.uid=parseInt(localStorage.getItem("id"));
+    this.product_db.placeOrder(new order(0,this.uid,this.productDetail.product_id,
       this.quantity,
       this.seller_details.retailer_id,this.date,0,0
       )).subscribe((data)=>{
@@ -82,5 +91,6 @@ export class BuyProductPage {
       },(err)=>{
         console.log(err)},()=>{
       });
+      this.quantity=0;
   }
 }

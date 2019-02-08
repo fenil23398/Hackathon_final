@@ -21,10 +21,11 @@ import { user } from '../../all_classes/user_class';
 export class ProductsPage {
   public user_location_city_id="";
   public user_location_pincode="";
-  
+
   @ViewChild('myselect') selectComponent:SelectSearchableComponent;
   mycity=null;
   cities:city[];
+  uid:number;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public product_db:ProductDbProvider,
     private toastCtrl:ToastController
@@ -33,8 +34,8 @@ export class ProductsPage {
   ionViewDidLoad() {
     console.log("ionViewDidLoad ProductsPage");
     this.product_db.getAllCategory().subscribe((data:any)=>{
-      this.categories=data.Data;
-      alert(this.categories[0].category_id);
+      this.categories=data;
+
     },(err)=>{
       console.log(err);
     },
@@ -53,8 +54,10 @@ export class ProductsPage {
   }
   userChanged(event:{component:SelectSearchableComponent,value:any}){
     console.log('event',event);
-    this.product_db.setCity(1,new user(1,"","","","",event.value,"","")).subscribe(
+    this.uid=parseInt(localStorage.getItem("id"));
+    this.product_db.setCity(this.uid,new user(this.uid,"","","","",event.value.city_id,"","")).subscribe(
       (data:any)=>{
+        console.log("data "+data);
     let toast=this.toastCtrl.create({
       message:'City Will be change.',
       duration:2000
@@ -95,7 +98,7 @@ export class ProductsPage {
     ()=>{
       console.log("completed cities");
     }
-    );                                                                                                                            
+    );
     this.selectComponent.open();
 
   }

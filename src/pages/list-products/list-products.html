@@ -19,7 +19,7 @@
   <ion-list *ngIf="searchStart">
     <ion-item *ngFor="let item of matchedProducts" (click)="onProductDetail(item)">
       <ion-avatar item-start>
-        <img src="https://img4.gadgetsnow.com/gd/images/products/additional/large/G84285_View_1/mobiles/smartphones/google-pixel-3-xl-64gb-just-black-4gb-ram-.jpg">
+        <img src="{{item.product_img}}">
       </ion-avatar>
       <h2>From {{item.product_price | currency:"INR"}} <span color="green">*</span> </h2>
       <h3>{{item.product_name}}</h3>
@@ -30,7 +30,7 @@
   <ion-list *ngIf="!searchStart">
     <ion-item *ngFor="let item of products" (click)="onProductDetail(item)">
       <ion-avatar item-start>
-        <img src="https://img4.gadgetsnow.com/gd/images/products/additional/large/G84285_View_1/mobiles/smartphones/google-pixel-3-xl-64gb-just-black-4gb-ram-.jpg">
+        <img src="{{item.product_img}}">
       </ion-avatar>
       <h2>From {{item.product_price | currency:"INR"}} <span color="green">*</span> </h2>
       <h3>{{item.product_name}}</h3>

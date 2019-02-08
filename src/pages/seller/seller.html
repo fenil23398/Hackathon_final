@@ -9,16 +9,16 @@
     <ion-navbar>
       <ion-title>Sellers In Your City</ion-title>
     </ion-navbar>
-  
+
   </ion-header>
-  
-  
+
+
   <ion-content padding>
     <ion-list>
       <!-- <ion-list-header>
         Sellers Nearby
       </ion-list-header> -->
-      <ion-item *ngFor="let item of proudcts" (click)="buyNowPro()">
+      <ion-item *ngFor="let item of proudcts" (click)="buyNowPro(item.retailer_id)">
         <button ion-button item-end round style="float:right;">
           Buy Now
         </button>
@@ -49,4 +49,3 @@
       </ion-item> -->
     </ion-list>
   </ion-content>
-  

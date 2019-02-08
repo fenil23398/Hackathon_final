@@ -31,8 +31,8 @@ export class ProductDetailPage {
   constructor(public navCtrl: NavController, public navParams: NavParams
     ,public inventorydb:ProductDbProvider
     ) {
-     
-    
+
+
     }
 
 
@@ -45,6 +45,7 @@ export class ProductDetailPage {
         this.prod_price=this.products[0].price;
         this.prod_delivery=this.products[0].delivery;
       }
+      this.stock=0;
       this.products.forEach(element => {
         this.stock=this.stock+element.stock;
       });
@@ -54,7 +55,7 @@ export class ProductDetailPage {
     },()=>{
 
     });
-    
+
     // console.log('ionViewDidLoad ProductDetailPage');
   }
   gotoSeller(){
@@ -64,5 +65,5 @@ export class ProductDetailPage {
     this.navCtrl.push(BuyProductPage,{prod:this.productDetail,seller:this.products[0]});
   }
 
-  
+
 }

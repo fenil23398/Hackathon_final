@@ -11,6 +11,7 @@ import { SignupPage } from "../signup/signup";
 import { TabsPage } from "../tabs/tabs";
 import { UserlogProvider } from "../Provider/userlog/userlog";
 import { User_Class } from "../Provider/userlog/user_class";
+import { ProductsPage } from "../products/products";
 
 /**
  * Generated class for the LoginPage page.
@@ -44,7 +45,7 @@ export class LoginPage {
     console.log("ionViewDidLoad LoginPage");
   }
   onLogin() {
-    
+
      let t1 = this.toast.create({
       message: "Login Successfully",
       duration: 3000,
@@ -68,7 +69,7 @@ export class LoginPage {
         if(x.length==1){
           // t1.present();
           this.uid=x[0].user_id;
-         
+
           localStorage.setItem('id',x[0].user_id);
           localStorage.setItem('email',x[0].user_email);
           this.password=x[0].user_password;
@@ -81,7 +82,7 @@ export class LoginPage {
           localStorage.setItem('ucid',this.user_cid);
           localStorage.setItem('upino',this.upino);
          localStorage.setItem('id',this.uid); // this.email_id=x[0].user_email;
-         
+
           this.navCtrl.push(TabsPage);
 
         }
@@ -92,14 +93,14 @@ export class LoginPage {
         }
       }
     }
-      ); 
-    this.navCtrl.setRoot(TabsPage);
+      );
+//this.navCtrl.setRoot(TabsPage);
   }
   onSignup() {
     this.navCtrl.push(SignupPage);
   }
   showPassword() {
-    console.log("hi");
+    // console.log("hi");
   }
   showPrompt() {
     let prompt = this.alert.create({
