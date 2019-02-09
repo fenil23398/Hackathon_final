@@ -38,7 +38,7 @@
 
     <div padding>
         <ion-segment [(ngModel)]="order">
-            <ion-segment-button value="track">
+            <ion-segment-button value="track" >
                 Track Orders
             </ion-segment-button>
             <ion-segment-button value="past">
@@ -57,7 +57,7 @@
 
     </div>
 
-    <button align="center" ion-button style="background:rgb(255,102,102)">Track Order</button>
+    <button align="center" ion-button style="background:rgb(255,102,102)" (click)="onTrack()">Track Order</button>
   <button align="center" ion-button color="secondary" (click)="onPast()">Past Order</button>
 
 </ion-content>

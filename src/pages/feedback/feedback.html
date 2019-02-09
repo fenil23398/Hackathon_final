@@ -15,14 +15,21 @@
 
 <ion-content padding>
 
-  <ion-textarea row="4" cols="50" style="border:1px solid black" name="feedback" placeholder="Enter Your Feedback....."></ion-textarea>
+  <ion-textarea row="10" cols="80" [(ngModel)]="desc" style="border:1px solid black;" name="feedback" placeholder="Enter Your Feedback....."></ion-textarea>
   <ion-list>
+      <ion-item>
+              <ion-label>Rating</ion-label>
+              <ion-select [(ngModel)]="rating" interface="action-sheet">
+                <ion-option value="0">Bad</ion-option>
+                <ion-option value="1">Moderate</ion-option>
+                <ion-option value="2">Good</ion-option>
+              </ion-select>
+            </ion-item>
+<br/>
+<br/>
 
-        <ion-list-header>
 
-        </ion-list-header>
-
-
+      <button ion-button block style="background:#00838F;size: 10px;box-align:right" (click)="onFeedBack()">Post</button>
 
 
     </ion-list>

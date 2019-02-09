@@ -1,7 +1,7 @@
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { order } from '../../all_classes/order_class';
-
+import { feedback } from "../../all_classes/feedback_class";
 
 @Injectable()
 export class ProductDbProvider {
@@ -15,9 +15,11 @@ export class ProductDbProvider {
   public user_url:string="http://localhost:8110/userss/";
   public order_url:string="http://localhost:8110/product/";
   public pastorder_url:string="http://localhost:8110/pastrecords/";
+  public feedback_url:string="http://localhost:8110/feedback/";
   public pin:number;
   public oid:number;
   public uid:number;
+  fed:feedback[]=[];
   public getProductByCatID(uid:any){
     this.pin=parseInt(localStorage.getItem("ucid"));
     return this.http.get(this.product_url+uid+"/"+this.pin);
@@ -48,5 +50,11 @@ export class ProductDbProvider {
   {
     this.uid=parseInt(localStorage.getItem("id"));
     return this.http.get(this.pastorder_url+uid);
+  }
+  public feedback(fed)
+  {
+    const body=JSON.stringify(fed);
+    return this.http.post(this.feedback_url,body,{headers:new HttpHeaders().set('Content-type','application/json')});
+
   }
 }

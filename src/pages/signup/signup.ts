@@ -38,7 +38,6 @@ ucid:string='';
   onSignupClick()
 
   {
-    alert('hi');
      let t2=this.toast.create({
     message:"Enter Email Id",
     duration:3000,

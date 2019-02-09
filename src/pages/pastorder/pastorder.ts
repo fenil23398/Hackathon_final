@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ToastController} from 'ionic-angular';
 
 import { FeedbackPage } from "../feedback/feedback";
 
@@ -9,6 +9,7 @@ import { inventory } from '../../all_classes/inventory_class';
 
 import { ProductDbProvider } from "../../providers/product-db/product-db";
 import { order } from '../../all_classes/order_class';
+import { past } from '../../all_classes/past_order_class';
 /**
  * Generated class for the PastorderPage page.
  *
@@ -22,40 +23,44 @@ import { order } from '../../all_classes/order_class';
   templateUrl: 'pastorder.html',
 })
 export class PastorderPage {
-
-  productDetail:product_detail_one;
+  myArr:past[]=[];
+  productDetail:product_detail_one[]=[];
   prod_price=0;
-  prod_delivery=0;
-  products:order;
+  total=0;
+  orders:order=new order(0,0,0,0,0,"",0,0,0,);
   invent:inventory[];
-  constructor(public navCtrl: NavController, public navParams: NavParams,public orderdb:ProductDbProvider) {
-
+  name:string='';
+  uid:number;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public orderdb:ProductDbProvider,public toast:ToastController) {
+    this.invent=this.navParams.get('seller');
+    this.productDetail=this.navParams.get('prod');
   }
 
   ionViewDidLoad() {
 
+
     console.log('ionViewDidLoad PastorderPage');
-    /*this.orderdb.pastorder(this.products.customer_id).subscribe((data:inventory[])=>{
-      this.invent=data;
-      if(this.products.length>0){
-        this.prod_price=this.products[0].price;
-        this.prod_delivery=this.products[0].delivery;
-      }
-      this.stock=0;
-      this.products.forEach(element => {
-        this.stock=this.stock+element.stock;
-      });
+    this.uid=parseInt(localStorage.getItem("id"));
+    this.orderdb.pastorder(this.uid).subscribe((data:past[])=>{
+      this.myArr=data;
+      // this.orders=data[0];
+      // console.log(data);
+      // console.log(this.orders);
+      // this.productDetail=data;
+        // this.name=this.productDetail.product_name[0];
+        // this.prod_price=this.invent[0].price + this.invent[0].deliver
+
       // this.stock=parseInt(this.stock+"");
     },(err)=>{
         console.log(err);
     },()=>{
 
-    });*/
+    });
 
   }
-  onFeed()
+  onFeed(oid:number)
   {
-    this.navCtrl.push(FeedbackPage);
+    this.navCtrl.push(FeedbackPage,{jainam_oid:oid});
   }
 
 }

@@ -16,15 +16,21 @@
 <ion-content padding>
    <div mbsc-card>
 
-        <img src="https://img.mobiscroll.com/demos/Blueberry.png">
+       <h2>{{name}}</h2>
 
       </div>
 
-<ion-item>
-    <h2>Carl Obama</h2>
+<ion-item *ngFor="let item of myArr">
+    <h2>{{item.pname}}</h2>
   <ion-avatar item-start>
-      <img src="../../assets/imgs/feedback.png" style="float:right;height:30px;width:30px;" (click)="onFeed()" >
-  </ion-avatar>
+      <img src="{{item.pimg}}" style="float:right;height:80px;width:80px;" align="left" (click)="onFeed(item.oid)" >
+
+    </ion-avatar>
+       <h2>{{item.price | currency: "INR"}}</h2>
+     <h4> X            {{item.quant}}  </h4>
+     <h5> = {{item.total}}  </h5>
+
+
 </ion-item>
 
 

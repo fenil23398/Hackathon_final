@@ -1,9 +1,10 @@
 import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { IonicPage, NavController, NavParams,ToastController } from "ionic-angular";
 import { ProfildetailsPage } from "../profildetails/profildetails";
 
 
 import { PastorderPage } from "../pastorder/pastorder";
+import { TrackorderPage } from "../trackorder/trackorder";
 
 import { UserlogProvider } from "../Provider/userlog/userlog";
 
@@ -25,9 +26,10 @@ export class ProfilePage {
   uid:string='';
 uname:string='';
 usr:User_Class[]=[];
-  constructor(public navCtrl: NavController, public navParams: NavParams,public udata:UserlogProvider) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams,public udata:UserlogProvider,public toast:ToastController) {}
 
   ionViewDidLoad() {
+
     console.log("ionViewDidLoad ProfilePage");
     this.uid=localStorage.getItem('id');
     this.udata.getUserid(this.uid).subscribe(
@@ -41,12 +43,24 @@ usr:User_Class[]=[];
 
 
   }
+
   onEditProfile()
   {
     this.navCtrl.push(ProfildetailsPage);
   }
   onPast()
   {
+    let t2=this.toast.create({
+      message:"Click On image for Feedback",
+      duration:5000,
+      position:"bottom"
+    });
+
+    t2.present();
     this.navCtrl.push(PastorderPage);
+  }
+  onTrack()
+  {
+    this.navCtrl.push(TrackorderPage);
   }
 }
