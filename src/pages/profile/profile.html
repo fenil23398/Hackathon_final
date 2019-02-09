@@ -7,7 +7,7 @@
 <ion-header>
 
     <ion-navbar color="extra">
-        <ion-title>Welcome, Zeel Modi</ion-title>
+        <ion-title>Welcome, {{uname}}</ion-title>
     </ion-navbar>
 
 </ion-header>
@@ -57,16 +57,7 @@
 
     </div>
 
-    <div [ngSwitch]="order">
-        <ion-list *ngSwitchCase="'past'">
-            <ion-item>
-                <ion-thumbnail item-start>
-                    <img src="img/thumbnail-puppy-1.jpg">
-                </ion-thumbnail>
-                <!-- <h2>Ruby</h2> -->
-            </ion-item>
-            No Orders
-        </ion-list>
+    <button align="center" ion-button style="background:rgb(255,102,102)">Track Order</button>
+  <button align="center" ion-button color="secondary" (click)="onPast()">Past Order</button>
 
-    </div>
 </ion-content>

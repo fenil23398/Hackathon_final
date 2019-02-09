@@ -14,7 +14,10 @@ export class ProductDbProvider {
   public inventory_url:string="http://localhost:8110/inventory/";
   public user_url:string="http://localhost:8110/userss/";
   public order_url:string="http://localhost:8110/product/";
+  public pastorder_url:string="http://localhost:8110/pastrecords/";
   public pin:number;
+  public oid:number;
+  public uid:number;
   public getProductByCatID(uid:any){
     this.pin=parseInt(localStorage.getItem("ucid"));
     return this.http.get(this.product_url+uid+"/"+this.pin);
@@ -40,5 +43,10 @@ export class ProductDbProvider {
   public placeOrder(ord:order){
     const body=JSON.stringify(ord);
     return this.http.post(this.order_url,body,{headers:new HttpHeaders().set('Content-type','application/json')});
+  }
+  public pastorder(uid:any)
+  {
+    this.uid=parseInt(localStorage.getItem("id"));
+    return this.http.get(this.pastorder_url+uid);
   }
 }

@@ -85,7 +85,7 @@ this.quantity=1;
     this.uid=parseInt(localStorage.getItem("id"));
     this.product_db.placeOrder(new order(0,this.uid,this.productDetail.product_id,
       this.quantity,
-      this.seller_details.retailer_id,this.date,0,0
+      this.seller_details.retailer_id,this.date,0,0,0
       )).subscribe((data)=>{
         this.navCtrl.push(PlaceOrderPage);
       },(err)=>{

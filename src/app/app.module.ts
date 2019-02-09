@@ -17,6 +17,9 @@ import { ListProductsPage } from "../pages/list-products/list-products";
 import { SellersPage } from "../pages/sellers/sellers";
 import { ServicesPage } from "../pages/services/services";
 import { ProfilePage } from "../pages/profile/profile";
+import { ChangepasswordPage } from "../pages/changepassword/changepassword";
+import { FeedbackPage } from "../pages/feedback/feedback";
+import { PastorderPage } from "../pages/pastorder/pastorder";
 import { ProductDbProvider } from '../providers/product-db/product-db';
 import { ProductDetailPage } from "../pages/product-detail/product-detail";
 import { SellerPage } from "../pages/seller/seller";
@@ -46,7 +49,10 @@ import { ServicedbProvider } from "../providers/servicedb/servicedb";
     DetailservicePage,
     BuyProductPage,
     SellersPage,
-    ProfildetailsPage
+    ProfildetailsPage,
+    ChangepasswordPage,
+    FeedbackPage,
+    PastorderPage
   ],
   bootstrap: [IonicApp],
   imports:[
@@ -73,8 +79,11 @@ import { ServicedbProvider } from "../providers/servicedb/servicedb";
     BuyProductPage,
     PlaceOrderPage,
     DetailservicePage,
-    ProfildetailsPage
-    
+    ProfildetailsPage,
+    ChangepasswordPage,
+    FeedbackPage,
+    PastorderPage
+
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },

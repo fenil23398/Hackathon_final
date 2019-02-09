@@ -10,6 +10,8 @@ import { ProfilePage } from "../../pages/profile/profile";
 import { UserlogProvider } from "../Provider/userlog/userlog";
 
 import { User_Class } from "../Provider/userlog/user_class";
+
+import { ChangepasswordPage } from "../changepassword/changepassword";
 /**
  * Generated class for the ProfildetailsPage page.
  *
@@ -83,5 +85,10 @@ export class ProfildetailsPage {
         function(err) {},
         function() {}
       );
+
+  }
+  onChange()
+  {
+    this.navCtrl.push(ChangepasswordPage);
   }
 }

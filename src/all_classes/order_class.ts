@@ -8,7 +8,8 @@ export class order{
         public retailer_id: Number,
         public date: string,
         public customer_otp: number,
-        public verified: number
+        public verified: number,
+        public verified_by_retailer:number
 
     ){
 
