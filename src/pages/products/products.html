@@ -8,17 +8,23 @@
 
     <ion-navbar color="extra">
         <ion-title>Home</ion-title>
-        <ion-label>Select Location</ion-label>
+       
+
+    </ion-navbar>
+    <ion-item>
+    <ion-label>Select Location</ion-label>
     <select-searchable item-content [(ngModel)]="mycity" [items]="cities" itemValueField="city_id" itemTextField="city_name" [canSearch]="true" (onChange)="userChanged($event)">
 
     </select-searchable>
-
-    </ion-navbar>
-
+</ion-item>
 </ion-header>
 
 
 <ion-content class="card-background-page">
+
+
+
+             
     <!-- //My Tags -->
 
     <!-- //Ends Here -->
@@ -48,7 +54,7 @@
             <img src="../assets/imgs/5.jpg" alt="">
         </ion-slide>
         <ion-slide>
-            <img src="../assets/imgs/category_9bf537c0.png" alt="">
+            <img src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep/categories/category_v2/category_9bf537c0.png" alt="">
         </ion-slide>
         <ion-slide>
             <img src="../assets/imgs/3.png" alt="">

@@ -4,7 +4,7 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="extra">
     <ion-title text-wrap>
       <!-- Hello -->
       {{productDetail.product_name}}
@@ -21,17 +21,8 @@
 <ion-content>
   <ion-slides pager autoplay="1000" loop="500" style="height:300px;">
     <ion-slide>
-      <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201806/Google_Pixel_3__Phone_Designer_0.jpeg?eXDBqi8Q18WTcCeXsn_wadCvTir6MVKN"
+      <img src="{{productDetail.product_img}}"
         height="300px" width="100%" />
-    </ion-slide>
-
-    <ion-slide>
-      <img src="https://blogs-images.forbes.com/gordonkelly/files/2018/05/1.jpg" alt="" srcset="" height="300px" width="100%" />
-    </ion-slide>
-
-    <ion-slide>
-      <img src="http://blog.awok.com/wp-content/uploads/2018/06/google-pixel-3-xl.jpg" height="300px" width="100%" alt=""
-        srcset="" />
     </ion-slide>
   </ion-slides>
   <ion-grid>

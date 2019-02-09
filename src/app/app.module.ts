@@ -20,6 +20,7 @@ import { ProfilePage } from "../pages/profile/profile";
 import { ChangepasswordPage } from "../pages/changepassword/changepassword";
 import { FeedbackPage } from "../pages/feedback/feedback";
 import { PastorderPage } from "../pages/pastorder/pastorder";
+import { ServiceBookPage } from "../pages/service-book/service-book";
 import { ProductDbProvider } from '../providers/product-db/product-db';
 import { ProductDetailPage } from "../pages/product-detail/product-detail";
 import { SellerPage } from "../pages/seller/seller";
@@ -54,7 +55,8 @@ import { ServicedbProvider } from "../providers/servicedb/servicedb";
     ChangepasswordPage,
     FeedbackPage,
     PastorderPage,
-    TrackorderPage
+    TrackorderPage,
+    ServiceBookPage
   ],
   bootstrap: [IonicApp],
   imports:[
@@ -85,7 +87,8 @@ import { ServicedbProvider } from "../providers/servicedb/servicedb";
     ChangepasswordPage,
     FeedbackPage,
     PastorderPage,
-    TrackorderPage
+    TrackorderPage,
+    ServiceBookPage
 
   ],
   providers: [

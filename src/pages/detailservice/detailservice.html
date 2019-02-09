@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content>
-    <!---- <p style="font-size:20px;"><img src="../assets/imgs/crown.png" style="height:50px;width:50px;">Near You </p>-->
+
     <ion-item style="align-content: center">
         <ion-avatar item-start>
             <img src="../assets/imgs/icons8-near-me-96.png">
@@ -18,8 +18,8 @@
     <ion-card *ngFor="let item of arr">
         <ion-item>
             <div class="item row">
-                <span align="left" class="col col-30">{{item.retailer_name}} <br>{{item.retailer_email}}</span>
-                <span align="right" class="col col-50"><a href="tel:{{item.retailer_mobile}}"><img src="../assets/imgs/telephone-call.png" style="height:30px;width:30px;float:right;margin-top:5px;"></a></span>
+                <span align="left" class="col col-30" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">{{item.retailer_name}} <br>{{item.retailer_email}}</span>
+                <span align="right" class="col col-50" style="font-family: Georgia, 'Times New Roman', Times, serif"><img src="../assets/imgs/download.png" style="height:40px;width:40px;float:right;margin-top:4px;"  (click)="onServiceBook(item.retailer_id)"></span>
             </div>
 
 
@@ -38,8 +38,8 @@
         <ion-item>
 
             <div class="item row">
-                <span align="left" class="col col-30">{{item.retailer_name}} <br>{{item.retailer_email}}</span>
-                <span align="right" class="col col-50"><a href="tel:{{item.retailer_mobile}}"><img src="../assets/imgs/telephone-call.png" style="height:30px;width:30px;float:right;margin-top:5px;"></a></span>
+                <span align="left" class="col col-30" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">{{item.retailer_name}} <br>{{item.retailer_email}}</span>
+                <span align="right" class="col col-50" style="font-family: Georgia, 'Times New Roman', Times, serif"><img src="../assets/imgs/download.png" style="height:40px;width:40px;float:right;margin-top:4px;" (click)="onServiceBook(item.retailer_id)"></span>
             </div>
 
 

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from "@angular/core";
-import { IonicPage, NavController, NavParams, ToastController } from "ionic-angular";
+import { IonicPage, NavController, NavParams, ToastController,Refresher,Content} from "ionic-angular";
 import { ListProductsPage } from "../list-products/list-products";
 import { ProductDbProvider } from "../../providers/product-db/product-db";
 import { category } from "../../all_classes/category_class";
@@ -21,6 +21,8 @@ import { user } from '../../all_classes/user_class';
 export class ProductsPage {
   public user_location_city_id="";
   public user_location_pincode="";
+  @ViewChild(Content) content: Content;
+  @ViewChild(Refresher) refresher: Refresher;
 
   @ViewChild('myselect') selectComponent:SelectSearchableComponent;
   mycity=null;
@@ -31,7 +33,17 @@ export class ProductsPage {
     private toastCtrl:ToastController
     ) {}
     categories:category[];
+  
+    doRefresh(event) {
+      console.log('Begin async operation');
+  
+      setTimeout(() => {
+        console.log('Async operation has ended');
+        event.target.complete()
+      }, 100);
+    }
   ionViewDidLoad() {
+    
     console.log("ionViewDidLoad ProductsPage");
     this.product_db.getAllCategory().subscribe((data:any)=>{
       this.categories=data;
@@ -49,9 +61,11 @@ export class ProductsPage {
     },
     ()=>{
       console.log("completed cities");
+      
     }
     );
   }
+ 
   userChanged(event:{component:SelectSearchableComponent,value:any}){
     console.log('event',event);
     this.uid=parseInt(localStorage.getItem("id"));

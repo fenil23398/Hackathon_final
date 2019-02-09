@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="extra">
     <ion-title>Buy Product</ion-title>
   </ion-navbar>
 
@@ -63,14 +63,14 @@
           <ion-col style="float: right;">
             {{totalAmt | currency: "INR" }}
           </ion-col>
-          <span *ngIf="canNotIncreaseQty" style="color: red">No More Stock Available</span>
+          <span *ngIf="canNotIncreaseQty" style="background:#00838F">No More Stock Available</span>
         </ion-row>
         <ion-row>
           <ion-col>
             <p>Delievery</p>
           </ion-col>
           <ion-col style="float: right;">
-            <span style="color: green">FREE</span>
+            <span >FREE</span>
             <!-- <span *ngIf="!delievery" style="color: red">Not Eligible</span> -->
           </ion-col>
         </ion-row>
@@ -85,7 +85,7 @@
       </ion-grid>
     </ion-item>
   </ion-list>
-  <button align="center" ion-button color="danger" (click)="cancelOrder()">Cancel Order</button>
-  <button align="center" ion-button color="secondary" (click)="placeOrder()">Place Order</button>
+  <button align="center" ion-button style="background:#00838F" (click)="cancelOrder()">Cancel Order</button>
+  <button align="center" ion-button style="background:#00838F" (click)="placeOrder()">Place Order</button>
 
 </ion-content>

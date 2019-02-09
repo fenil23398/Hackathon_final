@@ -5,63 +5,36 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar color="extra">
-    <ion-title>Profildetails</ion-title>
-  </ion-navbar>
+    <ion-navbar color="extra">
+        <ion-title>Profildetails</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-    <ion-item>
-      <ion-input
-        type="email"
-        placeholder="E-Mail Id"
-        name="email"
-        [(ngModel)]="email"
-        readonly
-      ></ion-input>
-      <ion-icon name="mail" item-left></ion-icon>
-    </ion-item>
-    <ion-item>
-      <ion-input
-        type="text"
-        placeholder="  Name"
-        name="name"
-        [(ngModel)]="name"
-        required
-      ></ion-input>
-      <ion-icon name="contact" item-left></ion-icon>
-    </ion-item>
-    <ion-item>
-      <ion-input
-        type="number"
-        placeholder="Mobile No"
-        name="mno"
-        [(ngModel)]="mno"
-        required
-      ></ion-input>
-      <ion-icon name="call" item-left></ion-icon>
-    </ion-item>
-    <ion-item>
-      <ion-input
-        required
-        name="pino"
-        placeholder="Pincode No"
-        [(ngModel)]="pino"
-      ></ion-input>
-      <ion-icon name="pin" item-left></ion-icon>
-    </ion-item>
-    <ion-item>
-      <ion-textarea
-        [(ngModel)]="address"
-        width="30%"
-        height="50%"
-      ></ion-textarea>
-      <ion-icon name="home" item-left></ion-icon>
-    </ion-item>
-  </ion-list>
-  <button color="secondary" (click)="onEditClick()" ion-button block>
+    <ion-list>
+        <ion-item>
+            <ion-input type="email" placeholder="E-Mail Id" name="email" [(ngModel)]="email" readonly></ion-input>
+            <ion-icon name="mail" item-left></ion-icon>
+        </ion-item>
+        <ion-item>
+            <ion-input type="text" placeholder="  Name" name="name" [(ngModel)]="name" required></ion-input>
+            <ion-icon name="contact" item-left></ion-icon>
+        </ion-item>
+        <ion-item>
+            <ion-input type="number" placeholder="Mobile No" name="mno" [(ngModel)]="mno" required></ion-input>
+            <ion-icon name="call" item-left></ion-icon>
+        </ion-item>
+        <ion-item>
+            <ion-input required name="pino" placeholder="Pincode No" [(ngModel)]="pino"></ion-input>
+            <ion-icon name="pin" item-left></ion-icon>
+        </ion-item>
+        <ion-item>
+            <ion-textarea class="stafftextarea_css" [(ngModel)]="address" width="30%" height="50%"></ion-textarea>
+            <ion-icon name="home" item-left></ion-icon>
+        </ion-item>
+    </ion-list>
+    <button style="background:#00838F;width:100px;margin-left:30px;" (click)="onEditClick()" ion-button>
     Save
   </button>
-  <button color="secondary"  (click)="onChange()"ion-button block>Change Password</button>
+    <button style="background:#00838F;width:100px;" ion-button>Reset</button>
 </ion-content>

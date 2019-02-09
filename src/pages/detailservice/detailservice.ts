@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Retailer } from './retailer_c';
 import { ServicedbProvider } from '../../providers/servicedb/servicedb';
+import { ServiceBookPage } from "../service-book/service-book";
+import { Service_man } from './service_man';
 
 /**
  * Generated class for the DetailservicePage page.
@@ -18,7 +20,8 @@ import { ServicedbProvider } from '../../providers/servicedb/servicedb';
 export class DetailservicePage {
   serviceid:number;
 usrpin:any='';
-
+public rid:any;
+public rprice:Service_man[]=[];
 usrcity:any='';
 public arr:Retailer[]=[];
 public arr1:Retailer[]=[];
@@ -62,6 +65,21 @@ public arr1:Retailer[]=[];
     }
 
     );
+  }
+
+  onServiceBook(id:any)
+  {
+     localStorage.setItem('retid',id);
+      this._data.getservicemen(id).subscribe(
+        (data:Service_man[])=>{
+          this.rprice=data;
+          this.rid=this.rprice[0].visiting_fees;
+          
+          localStorage.setItem('rid',this.rid);
+          
+        }
+      )
+      this.navCtrl.push(ServiceBookPage);
   }
 
 
