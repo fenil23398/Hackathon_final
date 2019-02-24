@@ -43,6 +43,7 @@ export class PastorderPage {
     this.uid=parseInt(localStorage.getItem("id"));
     this.orderdb.pastorder(this.uid).subscribe((data:past[])=>{
       this.myArr=data;
+      console.log(this.myArr);
       // this.orders=data[0];
       // console.log(data);
       // console.log(this.orders);

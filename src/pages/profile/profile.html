@@ -16,7 +16,7 @@
     <ion-list>
         <ion-item>
             <ion-avatar item-start>
-                <img src="https://www.india.com/wp-content/uploads/2018/02/Master-1.jpg">
+                <img src="https://www.clipartmax.com/png/middle/171-1717870_stockvader-predicted-cron-for-may-user-profile-icon-png.png">
             </ion-avatar>
             <h1>{{uname}}</h1>
             <button ion-button round (click)="onEditProfile()">Edit Profile</button>
@@ -26,38 +26,10 @@
     <ion-item>
     </ion-item>
 
-    <ion-item>
-        <ion-icon name="home"></ion-icon>
-        Shipping Address
-    </ion-item>
+    
+   
 
-    <ion-item>
-        <ion-icon name="bookmark"></ion-icon>
-        My WishList
-    </ion-item>
-
-    <div padding>
-        <ion-segment [(ngModel)]="order">
-            <ion-segment-button value="track" >
-                Track Orders
-            </ion-segment-button>
-            <ion-segment-button value="past">
-                Past Orders
-            </ion-segment-button>
-        </ion-segment>
-    </div>
-
-    <div [ngSwitch]="order">
-        <ion-list *ngSwitchCase="'track'">
-            <ion-item>
-
-            </ion-item>
-            No Orders
-        </ion-list>
-
-    </div>
-
-    <button align="center" ion-button style="background:rgb(255,102,102)" (click)="onTrack()">Track Order</button>
-  <button align="center" ion-button color="secondary" (click)="onPast()">Past Order</button>
+    <button align="center" ion-button style="background:#00838F" (click)="onTrack()">Track Order</button>
+  <button align="center" ion-button style="background:#00838F" (click)="onPast()">Past Order</button>
 
 </ion-content>

@@ -30,6 +30,7 @@ import {ProfildetailsPage} from "../pages/profildetails/profildetails";
 import { TrackorderPage } from "../pages/trackorder/trackorder";
 import { UserlogProvider } from "../pages/Provider/userlog/userlog";
 import { ServicedbProvider } from "../providers/servicedb/servicedb";
+import { feedback } from "../all_classes/feedback_class";
 
 
 @NgModule({
@@ -56,7 +57,9 @@ import { ServicedbProvider } from "../providers/servicedb/servicedb";
     FeedbackPage,
     PastorderPage,
     TrackorderPage,
-    ServiceBookPage
+    ServiceBookPage,
+    PastorderPage,
+    FeedbackPage
   ],
   bootstrap: [IonicApp],
   imports:[
@@ -88,7 +91,9 @@ import { ServicedbProvider } from "../providers/servicedb/servicedb";
     FeedbackPage,
     PastorderPage,
     TrackorderPage,
-    ServiceBookPage
+    ServiceBookPage,
+    FeedbackPage,
+    PastorderPage
 
   ],
   providers: [
